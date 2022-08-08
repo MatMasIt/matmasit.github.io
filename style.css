@@ -65,7 +65,10 @@
 }
  table{
      font-size: 30px;
-     width: 50vw;
+}
+td, th{
+    word-wrap: break-word;
+    word-break: break-all;
 }
  .abstractTitle{
      font-size: 30px !important;
