@@ -7,7 +7,7 @@ function pad(n, width, z) {
 function toIsoString(date) {
     var tzo = -date.getTimezoneOffset(),
         dif = tzo >= 0 ? '+' : '-',
-        pad = function(num) {
+        pad = function (num) {
             return (num < 10 ? '0' : '') + num;
         };
 
@@ -37,6 +37,85 @@ function beat() {
     living.innerHTML = "2002-11-19T22:15:00+01:00 - " + toIsoString(dt) + " <br /> " + diff_years + " y, " + diff_month + " m, " + diff_days + " d, " + pad(diff_hours, 2) + ":" + pad(diff_minutes, 2) + ":" + pad(diff_seconds, 2);
 }
 beat();
-setInterval(function() {
+
+
+
+function specialDates() {
+    let portrait = document.getElementById("portrait");
+    let portraitLink = document.getElementById("portraitLink");
+    let body = document.body;
+    let date = new Date();
+    // reset all    
+    body.classList.remove("bodyEuDay");
+    body.classList.remove("bodyRepublicDay");
+    document.querySelectorAll(".happyEuDay").forEach(function (el) {
+        el.style.display = "none";
+    });
+    document.querySelectorAll(".happyRepublicDay").forEach(function (el) {
+        el.style.display = "none";
+    });
+    document.querySelectorAll(".happyNATODay").forEach(function (el) {
+        el.style.display = "none";
+    });
+    document.querySelectorAll(".happyXMAS").forEach(function (el) {
+        el.style.display = "none";
+    });
+    portrait.src = "images/portrait.jpg";
+    portraitLink.href = "images/portrait.jpg";
+    /*
+     getDate is day of month, usual bad library design
+     also date.getMonth starts from 0, one of the dumbest zero-indexings
+     I have ever seen
+
+     These two things together took me 1 hour to figure out
+     */
+    if (date.getMonth() + 1 == 5 && date.getDate() == 9) {
+        body.classList.add("bodyEuDay");
+        portrait.src = "images/euportrait.png";
+        portraitLink.href = "images/euportrait.png";
+        document.querySelectorAll(".happyEuDay").forEach(function (el) {
+            el.style.display = "block";
+        });
+
+
+    }
+    else if (date.getMonth() + 1 == 6 && date.getDate() == 2) {
+        body.classList.add("bodyRepublicDay");
+        portrait.src = "images/itportrait.png";
+        portraitLink.href = "images/itportrait.png";
+        document.querySelectorAll(".happyRepublicDay").forEach(function (el) {
+            el.style.display = "block";
+        });
+    }
+    else if (date.getMonth() + 1 == 4 && date.getDate() == 4) {
+        body.classList.add("bodyNATODay");
+        portrait.src = "images/natoportrait.png";
+        portraitLink.href = "images/natoportrait.png";
+        document.querySelectorAll(".happyNATODay").forEach(function (el) {
+            el.style.display = "block";
+        });
+    }
+    else if (date.getMonth() + 1 == 12 && date.getDate() > 18 && date.getDate() < 27) {
+        body.classList.add("bodyXMAS");
+        portrait.src = "images/xmasportrait.png";
+        portraitLink.href = "images/xmasportrait.png";
+        document.querySelectorAll(".happyXMAS").forEach(function (el) {
+            el.style.display = "block";
+        });
+    }
+}
+
+
+
+specialDates();
+setPoemOfTheDay();
+
+setInterval(function () {
     beat();
 }, 1000);
+
+setInterval(function () {
+    specialDates();
+    setPoemOfTheDay()
+}, 5 * 60 * 1000);
+
