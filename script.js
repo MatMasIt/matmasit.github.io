@@ -39,34 +39,13 @@ function beat() {
 beat();
 
 
-var canvas = document.getElementById('mattiafoto'),
-    context = canvas.getContext('2d');
-
-function drawCanvas() {
-
-    let moretta = new Image();
-    moretta.src = ' http://www.parrocchie.it/alba/moretta/CORSOLANGHE/FOTO.jpg';
-    moretta.onload = function () {
-        context.drawImage(moretta, -40, -30, 800, 450);
-        base_image = new Image();
-        base_image.src = 'images/portraittransparent.png';
-        base_image.onload = function () {
-            context.drawImage(base_image, 0, 0);
-        }
-    }
-
-}
-
 
 function specialDates() {
     let portrait = document.getElementById("portrait");
     let portraitLink = document.getElementById("portraitLink");
-    let canvas = document.getElementById("mattiafoto");
     let body = document.body;
     let date = new Date();
     // reset all    
-    canvas.style.display = "none";
-    portrait.style.display = "block";
     body.classList.remove("bodyEuDay");
     body.classList.remove("bodyRepublicDay");
     document.querySelectorAll(".happyEuDay").forEach(function (el) {
@@ -116,7 +95,7 @@ function specialDates() {
             el.style.display = "block";
         });
     }
-    else if (date.getMonth() + 1 == 12 && date.getDate() > 18 && date.getDate() < 27 ) {
+    else if (date.getMonth() + 1 == 12 && date.getDate() > 18 && date.getDate() < 27) {
         body.classList.add("bodyXMAS");
         portrait.src = "images/xmasportrait.png";
         portraitLink.href = "images/xmasportrait.png";
@@ -124,13 +103,7 @@ function specialDates() {
             el.style.display = "block";
         });
     }
-    else if (date.getDay() === 6 || date.getDay() === 0) {
-        canvas.style.display = "block";
-        portrait.style.display = "none";
-        drawCanvas();
-    }
 }
-
 
 
 

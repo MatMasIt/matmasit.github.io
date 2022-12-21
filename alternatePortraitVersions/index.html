@@ -73,35 +73,6 @@
       </figcaption>
    </figure>
    <br />
-
-   <center>
-      <figure>
-         <canvas width="409" height="469" id="matt"></canvas>
-         <figcaption>
-            Weekend photo with a nice <a href="http://parrocchiamoretta.altervista.org/webcam/" target="_blank">webcam feed</a>
-         </figcaption>
-      </figure>
-   </center>
-   <script>
-      var canvas = document.getElementById('matt'),
-         context = canvas.getContext('2d');
-
-      function drawCanvas() {
-
-         let moretta = new Image();
-         moretta.src = ' http://www.parrocchie.it/alba/moretta/CORSOLANGHE/FOTO.jpg';
-         moretta.onload = function () {
-            context.drawImage(moretta, -40, -30, 800, 450);
-            base_image = new Image();
-            base_image.src = '../images/portraittransparent.png';
-            base_image.onload = function () {
-               context.drawImage(base_image, 0, 0);
-            }
-         }
-
-      }
-      drawCanvas();
-   </script>
    <p style="text-align: center;"> <a href="../">Home</a></p>
    <div class="footnotes">
       <p>
