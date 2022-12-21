@@ -128,3 +128,7 @@ body {
 .bodyRepublicDay a {
     color: #003399;
 }
+
+canvas#mattiafoto{
+    display: none;
+}
