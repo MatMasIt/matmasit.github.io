@@ -48,6 +48,9 @@ function specialDates() {
     // reset all    
     body.classList.remove("bodyEuDay");
     body.classList.remove("bodyRepublicDay");
+    body.classList.remove("bodyXMAS");
+    body.classList.remove("bodyNATODay");
+    body.classList.remove("greyFilter");
     document.querySelectorAll(".happyEuDay").forEach(function (el) {
         el.style.display = "none";
     });
@@ -102,6 +105,9 @@ function specialDates() {
         document.querySelectorAll(".happyXMAS").forEach(function (el) {
             el.style.display = "block";
         });
+    }
+    else if(date.getMonth() + 1 == 1){ // grey january
+        body.classList.add("greyFilter");
     }
 }
 
