@@ -3,3 +3,4 @@ docs/*.gz
 docs/europecv
 docs/*.aux
 docs/*.sh
+docs/*.out
