@@ -106,7 +106,7 @@ function specialDates() {
             el.style.display = "block";
         });
     }
-    else if(date.getMonth() + 1 == 1){ // grey january
+    else if (date.getMonth() + 1 == 1) { // grey january
         body.classList.add("greyFilter");
     }
 }
@@ -125,3 +125,59 @@ setInterval(function () {
     setPoemOfTheDay()
 }, 5 * 60 * 1000);
 
+
+let mattiaText = document.getElementById("mattia");
+let mascarelloText = document.getElementById("mascarello");
+
+let mattia = new Audio("audio/mattia.ogg");
+let mascarello = new Audio("audio/mascarello.ogg");
+
+let pronounceLink = document.getElementById("pronounce");
+let pronounceImage = document.querySelector("#pronounce>img");
+
+let playing = false;
+
+try {
+    // disable media controls here
+    navigator.mediaSession.setActionHandler('play', function () { /* Code excerpted. */ });
+    navigator.mediaSession.setActionHandler('pause', function () { /* Code excerpted. */ });
+    navigator.mediaSession.setActionHandler('seekbackward', function () { /* Code excerpted. */ });
+    navigator.mediaSession.setActionHandler('seekforward', function () { /* Code excerpted. */ });
+    navigator.mediaSession.setActionHandler('previoustrack', function () { /* Code excerpted. */ });
+    navigator.mediaSession.setActionHandler('nexttrack', function () { /* Code excerpted. */ });
+} catch (e) { }
+
+pronounceImage.addEventListener("mouseenter", function () {
+    if (playing) return;
+    pronounceImage.src = "icons/loudspeaker-selected.svg";
+});
+
+pronounceImage.addEventListener("mouseleave", function () {
+    if (playing) return;
+    pronounceImage.src = "icons/loudspeaker.svg";
+});
+
+mascarello.onended = function () {
+    playing = false;
+    pronounceImage.src = "icons/loudspeaker.svg";
+    setTimeout(function () {
+        mascarelloText.classList.remove("speakingNow");
+    }, 500);
+};
+
+mattia.onended = function () {
+    setTimeout(function () {
+        mattiaText.classList.remove("speakingNow");
+        mascarelloText.classList.add("speakingNow");
+        mascarello.play();
+    }, 1000);
+};
+pronounceLink.addEventListener("click", function () {
+    if (playing) return;
+    pronounceImage.src = "icons/loudspeaker-selected.svg";
+    mattia.currentTime = 0;
+    mascarello.currentTime = 0;
+    playing = true;
+    mattiaText.classList.add("speakingNow");
+    mattia.play();
+});

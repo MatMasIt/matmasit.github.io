@@ -132,3 +132,33 @@ body {
 .greyFilter {
     filter: grayscale(100);
 }
+
+
+#pronounce>img {
+    width: 20px;
+    display: inline;
+}
+
+.speakingNow {
+    color: #a00;
+}
+
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#pronouceBox {
+    opacity: 0;
+    animation: 3s fadein forwards;
+}
+
+header {
+    max-width: 85vw;
+}
