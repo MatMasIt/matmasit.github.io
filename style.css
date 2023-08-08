@@ -113,6 +113,10 @@ body {
 
 }
 
+.bodyNATODay a {
+    color: #004990;
+}
+
 
 .bodyEuDay table {
     border-color: gold;
@@ -126,7 +130,7 @@ body {
 }*/
 
 .bodyRepublicDay a {
-    color: #003399;
+    color: #008c45;
 }
 
 .greyFilter {
@@ -139,9 +143,8 @@ body {
     display: inline;
 }
 
-.speakingNow {
-    color: #a00;
-}
+
+
 
 
 @keyframes fadein {
@@ -161,4 +164,30 @@ body {
 
 header {
     max-width: 85vw;
+}
+
+.blueColor {
+    filter: invert(16%) sepia(43%) saturate(5106%) hue-rotate(196deg) brightness(98%) contrast(102%);
+}
+
+.redColor {
+    filter: invert(15%) sepia(50%) saturate(5408%) hue-rotate(352deg) brightness(85%) contrast(122%);
+}
+
+.greenColor {
+    filter: invert(41%) sepia(83%) saturate(6654%) hue-rotate(146deg) brightness(94%) contrast(102%);
+}
+
+.goldColor {
+    color: black;
+    filter: invert(69%) sepia(71%) saturate(860%) hue-rotate(2deg) brightness(110%) contrast(105%);
+}
+
+.darkGoldColor {
+    color: black;
+    filter: invert(44%) sepia(96%) saturate(655%) hue-rotate(14deg) brightness(96%) contrast(91%);
+}
+
+.baseColor {
+    filter: none;
 }

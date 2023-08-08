@@ -48,10 +48,11 @@
 <body>
    <header>
       <h1>
-         <span id="mattia" class="container"><span class="typed-out">Mattia</span></span> <span id="mascarello">Mascarello</span>
+         <span id="mattia" class="container"><span class="typed-out">Mattia</span></span> <span
+            id="mascarello">Mascarello</span>
          <br />
          <div id="pronouceBox">
-            <i style="font-size: 20px;">[matːˈia maskarˈɛllo]</i> &nbsp;<a href="#" id="pronounce"><img
+            <i style="font-size: 20px;">[matːˈia maskarˈɛllo]</i> &nbsp;<a href="javascript:void(0);" id="pronounce"><img
                   src="icons/loudspeaker.svg" alt="Listen to my name" /></a>
          </div>
       </h1>
@@ -66,11 +67,19 @@
          <br />
          <h2>Happy <a href="https://european-union.europa.eu/principles-countries-history/symbols/europe-day_en">Europe
                Day</a>!</h2>
+
+         <img data-play="eu" style="display: inline" class="playIcon" alt="Start Playing"
+            aria-roledescription="Play/Stop button" src="icons/play.svg" width="20" />
+         &nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Anthem_of_Europe"><i>Anthem of Europe</i></a>
       </div>
       <div class="happyRepublicDay">
          <br /><br />
-         <h2>Buona <a href="https://en.wikipedia.org/wiki/Festa_della_Repubblica"><i>Festa della repubblica</i></a>!
-         </h2>
+         <h2>Buona <a href="https://en.wikipedia.org/wiki/Festa_della_Repubblica"><i>Festa della repubblica</i></a>!</h2>
+          
+            <img data-play="it" style="display: inline" class="playIcon" alt="Start Playing"
+               aria-roledescription="Play/Stop button" src="icons/play.svg" width="20" />
+            &nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/Il_Canto_degli_Italiani">Anthem of Italy <i>(Il Canto degli Italiani)</i></a>
+         
       </div>
       <div class="happyXMAS">
          <br />
@@ -79,6 +88,9 @@
       <div class="happyNATODay">
          <br />
          <h2>Happy <a href="https://en.wikipedia.org/wiki/NATO_Day">NATO Day</a>!</h2>
+         <img data-play="nato" style="display: inline" class="playIcon" alt="Start Playing"
+            aria-roledescription="Play/Stop button" src="icons/play.svg" width="20" />
+         &nbsp;&nbsp;<a href="https://en.wikipedia.org/wiki/The_NATO_Hymn"><i>The NATO Hymn</i></a>
       </div>
       </p>
    </div>
@@ -253,6 +265,10 @@
    <div class="footnotes">
       <p>
          &copy; 2022-2023 Mattia Mascarello
+      </p>
+      <p>
+         Versions: <a href="#force:eu">Europe Day <span style="display:inline" id="euS">(current)</span></a>, <a href="#force:it">Republic Day <span style="display:inline" id="redS">(current)</span></a>, <a
+         href="#force:xmas">Christmas<span style="display:inline" id="xmaS">(current)</span></a>, <a href="#force:nato">NATO Day<span style="display:inline" id="natoS">(current)</span></a>, <a href="#force:jan">January <span style="display:inline" id="janS">(current)</span></a>, <a href="#force:no">Regular <span style="display:inline" id="regularS">(current)</span></a>.
       </p>
    </div>
    <script src="poemOfTheDay.js"></script>
