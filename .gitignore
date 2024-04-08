@@ -1,0 +1,8 @@
+docs/*.log
+docs/*.gz
+docs/europecv
+docs/*.aux
+docs/*.fdb_latexmk
+docs/*.fls
+docs/*.sh
+docs/*.out
