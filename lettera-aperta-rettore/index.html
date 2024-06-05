@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../latex.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Lettera aperta al rettore dell'Universita di Torino, Stefano Geuna</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lettera aperta al rettore dell'Universita di Torino" />
+    <meta name="keywords" content="UniTo,Palazzo Nuovo" />
+    <meta property="og:title" content="Lettera aperta al rettore dell'Universita di Torino" />
+    <meta property="og:description" content="Lettera aperta al rettore dell'Universita di Torino" />
+    <meta property="og:type" content="website" />
+    <style>
+        body {
+            max-width: 85vw;
+        }
+
+        .letter {
+            max-width: 60em;
+        }
+
+        .accessibility {
+            font-size: 1.5em;
+            line-height: 1.5em;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 style="text-align: left;">Lettera aperta al rettore dell'Universita di Torino</h1>
+        <a href="#" id="accessibility">Versione accessibile</a>
+    </header>
+
+    <main class="letter">
+        <p>
+            Egregio Rettore.
+        </p>
+        <p>
+            Siamo un gruppo di studenti preoccupati per la situazione che attualmente affligge Palazzo Nuovo, e, di
+            conseguenza,
+            l’università tutta.
+        </p>
+        <p>
+            L’occupazione di Palazzo Nuovo non solo compromette la continuità delle attività accademiche e la fruibilità
+            degli
+            ambienti stessi, ma arreca un danno significativo ad una vasta maggioranza di studenti e personale
+            universitario
+            che
+            desiderano semplicemente proseguire le proprie attività didattiche in un ambiente sicuro, libero e sereno.
+        </p>
+        <p>
+            Innanzitutto, desideriamo esprimere il nostro rispetto per il diritto di espressione e di protesta, pilastri
+            fondamentali di qualsiasi società democratica e aperta. Tuttavia, riteniamo che le modalità e le richieste
+            avanzate
+            dagli occupanti siano pretestuose e strumentali. Infatti, un ridotto manipolo di autoproclamatisi custodi
+            del
+            sommo
+            bene non vuol solo essere ascoltato su lecite richieste, su cui ognuno ha libertà di giudizio, quali la
+            collaborazione con le università israeliane in luce del conflitto in corso, ma bensì, con metodi quasi
+            ricattatori,
+            esige l’imposizione di una propria visione ideologica sull’università stessa, avulsa da una genuina
+            preoccupazione
+            etica per l’attività dell’università, scavalcando gli organi democratici che regolano la vita accedemica,
+            arduamente
+            conquistati in passato, sì con metodi simili, ma che ora esistono e che garantiscono la pluralità e la
+            rappresentatività del corpo studentesco.
+        </p>
+        <p>
+            Tutti noi seguiamo con apprensione quanto accade a Gaza, ma non è ammissibile permettere che un ristretto gruppo di individui, al di fuori di qualsiasi processo
+            democratico e rappresentativo, si faccia padrone delle strutture universitarie -anche per usi manifestamente
+            abietti- e determini la vita di tutti gli altri studenti, peraltro con particolare tracotanza verso quanti
+            non
+            condividono i fini per cui agiscono, per quanto si possano ritenere nobili ed elevati.
+        </p>
+        <p>
+            Questi metodi non devono portare ad un riconoscimento e ad una legittimazione.
+        </p>
+        <p>
+            È importante che l'università rimanga un luogo di apprendimento libero e inclusivo, dove il dibattito e la
+            diversità
+            di opinioni sono incoraggiati e rispettati. Non si può cedere a pressioni che minino il ruolo
+            dell'università
+            come
+            istituzione educativa e luogo di libero pensiero. La nostra università ha sempre promosso il dialogo e il
+            confronto,
+            e questo deve avvenire -e continiuare- nel rispetto delle regole democratiche e delle esigenze di tutta la
+            comunità
+            accademica.
+        </p>
+        <p>
+            Pertanto, chiediamo il Suo intervento deciso affinché Palazzo Nuovo venga liberato e la normale attività
+            accademica
+            possa riprendere al più presto. Se non può ragionevolmente prodigarsi direttamente, Le chiediamo almeno di
+            adottare
+            una postura più ferma e decisa nei confronti di questa occupazione. Solo con una chiara presa di posizione
+            possiamo
+            garantire che l’Università di Torino continui a essere un luogo di apprendimento e crescita per tutti, senza
+            discriminazioni e prevaricazioni.
+        </p>
+        <p>
+            Confidiamo nel Suo supporto e nella Sua leadership per ristabilire l’ordine e garantire il diritto allo
+            studio
+            di
+            tutti gli studenti. In attesa di un Suo riscontro, porgiamo i nostri più cordiali saluti.
+        </p>
+    </main>
+    <footer>
+        <br /><br />
+        <p>
+            <a href="https://forms.gle/Nr9ti1skTgHoN3mu7">Firma (in forma anonima o
+                personale)</a>
+        </p>
+        <p>
+            Per firme e sostegno non da parte di studenti, siate pregati di contattare: <a
+                href="mailto:mattia.mascarello@edu.unito.it">mattia.mascarello@edu.unito.it</a>
+        </p>
+        <br /><br />
+        <p id="signatures"></p>
+        <br /><br />
+        <script>
+            // fetch names.json
+            fetch('/lettera-aperta-rettore/names.json')
+                .then(response => response.json())
+                .then(data => {
+                    let names = data.names;
+                    let signatures = document.getElementById('signatures');
+                    names.forEach(function(name, index) {
+                        signatures.innerHTML += "<b>" + name + '</b>';
+                        if (index < names.length - 1) {
+                            signatures.innerHTML += ', ';
+                        }
+                    });
+                    let anon = data.anon;
+                    if(anon > 0) {
+                        signatures.innerHTML += '<br />  ' + anon + ' firme anonime';
+                    }
+                });
+        </script>
+    </footer>
+    <script>
+        let letter = document.querySelector('.letter');
+        let header = document.querySelector('header');
+        let footer = document.querySelector('footer');
+        document.getElementById('accessibility').addEventListener('click', function () {
+            letter.classList.toggle('accessibility');
+            header.classList.toggle('accessibility');
+            footer.classList.toggle('accessibility');
+            if (letter.classList.contains('accessibility')) {
+                document.getElementById('accessibility').textContent = 'Versione standard';
+            } else {
+                document.getElementById('accessibility').textContent = 'Versione accessibile';
+            }
+        });
+    </script>
+</body>
+
+</html>
