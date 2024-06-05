@@ -70,7 +70,8 @@
             rappresentatività del corpo studentesco.
         </p>
         <p>
-            Tutti noi seguiamo con apprensione quanto accade a Gaza, ma non è ammissibile permettere che un ristretto gruppo di individui, al di fuori di qualsiasi processo
+            Tutti noi seguiamo con apprensione quanto accade a Gaza, ma non è ammissibile permettere che un ristretto
+            gruppo di individui, al di fuori di qualsiasi processo
             democratico e rappresentativo, si faccia padrone delle strutture universitarie -anche per usi manifestamente
             abietti- e determini la vita di tutti gli altri studenti, peraltro con particolare tracotanza verso quanti
             non
@@ -113,6 +114,7 @@
         <p>
             <a href="https://forms.gle/Nr9ti1skTgHoN3mu7">Firma (in forma anonima o
                 personale)</a>
+        <p><i>Nota</i>: per firmare occorre essere autenticati con un account Google fornito dall'Università.</p>
         </p>
         <p>
             Per firme e sostegno non da parte di studenti, siate pregati di contattare: <a
@@ -128,14 +130,14 @@
                 .then(data => {
                     let names = data.names;
                     let signatures = document.getElementById('signatures');
-                    names.forEach(function(name, index) {
+                    names.forEach(function (name, index) {
                         signatures.innerHTML += "<b>" + name + '</b>';
                         if (index < names.length - 1) {
                             signatures.innerHTML += ', ';
                         }
                     });
                     let anon = data.anon;
-                    if(anon > 0) {
+                    if (anon > 0) {
                         signatures.innerHTML += '<br />  ' + anon + ' firme anonime';
                     }
                 });
