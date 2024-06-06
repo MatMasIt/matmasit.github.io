@@ -26,10 +26,6 @@
             line-height: 1.5em;
             font-family: Helvetica, Arial, sans-serif;
         }
-
-        .namepart {
-            white-space: nowrap;
-        }
     </style>
 </head>
 
@@ -144,12 +140,9 @@
                         let nameparts = name.split(' ');
                         let fullname = "";
                         nameparts.forEach(function (namepart, index) {
-                                fullname += '<span class="namepart">' + namepart + '</span> ';
+                            fullname += '<span class="namepart">' + namepart + '</span> ';
                         });
-                        signatures.innerHTML += "<b>" + fullname + '</b>';
-                        if (index < names.length - 1) {
-                            signatures.innerHTML += ', ';
-                        }
+                        signatures.innerHTML += "<b>" + fullname + '</b><br />';
                     });
                     let anon = data.anon;
                     if (anon > 0) {
