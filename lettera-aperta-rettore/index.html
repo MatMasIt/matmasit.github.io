@@ -26,6 +26,10 @@
             line-height: 1.5em;
             font-family: Helvetica, Arial, sans-serif;
         }
+
+        #signatures b {
+            white-space: nowrap;
+        }
     </style>
 </head>
 
@@ -144,7 +148,7 @@
                     });
                     let anon = data.anon;
                     if (anon > 0) {
-                        signatures.innerHTML += '<br />  e ' + anon + ' firme anonime';
+                        signatures.innerHTML += '<br />  e <b>' + anon + '</b> firme anonime';
                     }
                 });
         </script>
