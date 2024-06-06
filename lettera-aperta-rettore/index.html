@@ -27,7 +27,7 @@
             font-family: Helvetica, Arial, sans-serif;
         }
 
-        #signatures b {
+        .namepart {
             white-space: nowrap;
         }
     </style>
@@ -141,7 +141,12 @@
                     let names = data.names;
                     let signatures = document.getElementById('signatures');
                     names.forEach(function (name, index) {
-                        signatures.innerHTML += "<b>" + name + '</b>';
+                        let nameparts = name.split(' ');
+                        let fullname = "";
+                        nameparts.forEach(function (namepart, index) {
+                                fullname += '<span class="namepart">' + namepart + '</span> ';
+                        });
+                        signatures.innerHTML += "<b>" + fullname + '</b>';
                         if (index < names.length - 1) {
                             signatures.innerHTML += ', ';
                         }
