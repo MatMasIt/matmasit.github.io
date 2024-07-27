@@ -191,3 +191,13 @@ header {
 .baseColor {
     filter: none;
 }
+
+body {
+    background: url(images/newportrait_nobg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* shift image left by 25% */
+    background-attachment: fixed;
+    background-position-y: 30%;
+    background-position-x: 1000px;
+}
